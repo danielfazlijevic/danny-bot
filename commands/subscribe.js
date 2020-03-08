@@ -8,10 +8,9 @@ const {
 module.exports = {
     name: 'subscribe',
     description: 'Subscribe to site changes. You will get mentioned if site has changed.',
-    usage: 'subscribe <url> ',
+    usage: '<id>',
     args: true,
     async execute(message, args) {
-        if (!args[0]) return message.channel.send('Error. Usage: ', usage);
         const docID = args[0];
 
         const {
@@ -29,7 +28,7 @@ module.exports = {
 
 
             const siteToSubscribeRef = await db.collection('watched_sites').doc(docID);
-            
+
             siteToSubscribeRef.update({
                 subscriptions: admin.firestore.FieldValue.arrayUnion(newSubscription)
             });

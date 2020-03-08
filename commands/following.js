@@ -17,7 +17,7 @@ module.exports = {
         })
 
         const following = data.map(element => `URL: ${element.url} | Added by: ${element.added_by} | ID: ${element.id}`);
-        
+
         const followingMessage = following.join('\n');
 
 
