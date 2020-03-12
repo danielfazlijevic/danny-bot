@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  danny-bot:
+    image: danny-bot
+    build: .
+    environment:
+      NODE_ENV: production

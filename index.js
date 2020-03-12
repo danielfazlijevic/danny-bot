@@ -23,6 +23,7 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
     console.log('Ready!');
+    console.log('Firebase Credentials at: ', process.env.FIREBASE_CREDENTIALS_PATH)
 });
 
 client.on('message', message => {

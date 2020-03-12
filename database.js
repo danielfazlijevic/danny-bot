@@ -8,6 +8,7 @@ admin.initializeApp({
 
 let db = admin.firestore();
 
+console.log('Firebase config project id: ', serviceAccount.project_id);
 
 module.exports = {
     db,

@@ -1,15 +1,8 @@
-FROM node:latest
+FROM node:10.13-alpine
+ENV NODE_ENV production
+WORKDIR /usr/src/app
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+RUN npm install --production --silent && mv node_modules ../
+COPY . .
 
-# Create the directory!
-RUN mkdir -p /usr/src/bot
-WORKDIR /usr/src/bot
-
-# Copy and Install our bot
-COPY package.json /usr/src/bot
-RUN npm install
-
-# Our precious bot
-COPY . /usr/src/bot
-
-# Start me!
-CMD ["node", "index.js"]
+CMD node index.js
