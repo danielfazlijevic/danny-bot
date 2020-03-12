@@ -6,5 +6,5 @@ services:
     build: .
     environment:
       NODE_ENV: production
-      env_file:
-        - .env
+    env_file:
+      - .env
